@@ -83,6 +83,9 @@ public class FindActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 获取能查询的班级
+     */
     private void JsonArrayRequest_get_allclassname() {
         final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         final String url = "http://xj.siso.edu.cn/stu/jasonclassnames.aspx";
@@ -236,7 +239,11 @@ public class FindActivity extends AppCompatActivity {
 //        requestQueue.add(jsonRequest);
 //    }
 
-
+    /**
+     * 通过姓名查找，传递 putParcelableArrayList
+     *
+     * @throws UnsupportedEncodingException
+     */
     private void JsonArrayRequest_findname() throws UnsupportedEncodingException {
 
         final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -293,6 +300,11 @@ public class FindActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 通过班级查找，传递 putParcelableArrayList
+     *
+     * @throws UnsupportedEncodingException
+     */
     private void JsonArrayRequest_findclass() throws UnsupportedEncodingException {
         final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         final String url = "http://xj.siso.edu.cn/stu/jasonquery.aspx?" +
@@ -319,7 +331,12 @@ public class FindActivity extends AppCompatActivity {
 
                             Log.i("JsonObjectRequest_get", String.valueOf(user.size()));
 
-                            Intent intent = new Intent(FindActivity.this, FindClassActivity.class);
+                            /**
+                             * 更改地方1
+                             */
+//                            Intent intent = new Intent(FindActivity.this, FindClassActivity.class);
+                            Intent intent = new Intent(FindActivity.this,Main2Activity.class);
+
                             Bundle bundle = new Bundle();
                             bundle.putParcelableArrayList("users", user);
                             intent.putExtras(bundle);
@@ -346,6 +363,10 @@ public class FindActivity extends AppCompatActivity {
         requestQueue.add(jsonRequest);
     }
 
+
+    /**
+     * 通过学号查找, 传递 putParcelableArrayList
+     */
     private void JsonArrayRequest_findid() {
         final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
