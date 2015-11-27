@@ -10,6 +10,7 @@ import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by air on 15/11/8.
@@ -88,4 +89,9 @@ public class UsersInfoAdapter extends RecyclerView.Adapter {
         this.mListener = listener;
     }
 
+    public void setFilter(List<UserInfoBean> userInfoBeen){
+        users = new ArrayList<>();
+        users.addAll(userInfoBeen);
+        notifyDataSetChanged();
+    }
 }
