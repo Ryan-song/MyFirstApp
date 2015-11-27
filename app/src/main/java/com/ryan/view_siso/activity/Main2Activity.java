@@ -9,16 +9,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.ryan.view_siso.Fragment.STU_fragment;
 import com.ryan.view_siso.Fragment.TEA_fragment;
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.adapter.ViewPagerAdapter;
+import com.ryan.view_siso.bean.UserInfoBean;
+
+import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
 
     private TabLayout tablayout;
     private ViewPager viewPager01;
+    private ArrayList<UserInfoBean> users;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class Main2Activity extends AppCompatActivity {
 
         initToolbar();
         initView();
+
 
 
     }
@@ -39,6 +46,9 @@ public class Main2Activity extends AppCompatActivity {
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         tablayout.setupWithViewPager(viewPager01);
 
+        users = this.getIntent().getParcelableArrayListExtra("users");
+        TextView textiew = (TextView) findViewById(R.id.text);
+        textiew.setText(users.get(0).getSTUClass());
     }
 
     private void setupViewPager(ViewPager viewPager01) {
