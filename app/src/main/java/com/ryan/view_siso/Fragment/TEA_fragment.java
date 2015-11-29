@@ -23,7 +23,6 @@ import com.google.gson.reflect.TypeToken;
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.adapter.TeaItemAdapter;
 import com.ryan.view_siso.bean.TeaInfoBean;
-import com.ryan.view_siso.bean.UserInfoBean;
 
 import org.json.JSONArray;
 
