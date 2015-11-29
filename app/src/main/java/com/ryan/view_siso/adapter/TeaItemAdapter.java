@@ -8,8 +8,10 @@ import android.widget.TextView;
 
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.TeaInfoBean;
+import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by air on 15/11/27.
@@ -50,6 +52,11 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
             name = (TextView) itemView.findViewById(R.id.xingmin);
             depat = (TextView) itemView.findViewById(R.id.bumen);
         }
+    }
+    public void setFilter(List<TeaInfoBean> userInfoBeen){
+        teachers = new ArrayList<>();
+        teachers.addAll(userInfoBeen);
+        notifyDataSetChanged();
     }
 
 }

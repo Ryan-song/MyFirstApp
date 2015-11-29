@@ -3,10 +3,15 @@ package com.ryan.view_siso.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -23,6 +28,7 @@ import com.google.gson.reflect.TypeToken;
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.adapter.TeaItemAdapter;
 import com.ryan.view_siso.bean.TeaInfoBean;
+import com.ryan.view_siso.bean.UserInfoBean;
 
 import org.json.JSONArray;
 
@@ -30,14 +36,17 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by air on 15/11/26.
  */
-public class TEA_fragment extends Fragment {
+public class TEA_fragment extends Fragment implements SearchView.OnQueryTextListener{
 
     private RecyclerView recyclerView;
+    private ArrayList<TeaInfoBean> teas;
+    private TeaItemAdapter teaItemAdapter;
 
     @Nullable
     @Override
@@ -53,6 +62,7 @@ public class TEA_fragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //使用自己的toolbar工具栏
         setHasOptionsMenu(true);
 
         try {
@@ -64,6 +74,38 @@ public class TEA_fragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main,menu);
+        final MenuItem item = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        searchView.setOnQueryTextListener(this);
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        final List<TeaInfoBean> filteredModelList = filter(teas, newText);
+        teaItemAdapter.setFilter(filteredModelList);
+        return true;
+    }
+
+    private List<TeaInfoBean> filter(List<TeaInfoBean> teaInfoBean, String newText){
+        newText = newText.toLowerCase();
+        final List<TeaInfoBean> filteredModelList = new ArrayList<>();
+        for (TeaInfoBean model : teaInfoBean){
+            final String text = model.getXingmin().toLowerCase();
+            if (text.contains(newText)) {
+                filteredModelList.add(model);
+            }
+        }
+        return filteredModelList;
+    }
 
     private void JsonArray_findteacher() throws UnsupportedEncodingException {
 
@@ -84,13 +126,13 @@ public class TEA_fragment extends Fragment {
                         if (!(response.length() == 0)) {
 //                        Success~~!
                             Type type = new TypeToken<ArrayList<TeaInfoBean>>() {}.getType();
-                            ArrayList<TeaInfoBean> teas = new Gson().fromJson(response.toString(), type);
+                            teas = new Gson().fromJson(response.toString(), type);
                             Log.i("JsonObjectRequest_get", String.valueOf(teas.size()));
 
                             recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-                            TeaItemAdapter teaItemAdapter = new TeaItemAdapter(teas);
+                            teaItemAdapter = new TeaItemAdapter(teas);
                             recyclerView.setAdapter(teaItemAdapter);
                         } else {
                             Toast.makeText(getActivity(), "网络延迟", Toast.LENGTH_LONG).show();
