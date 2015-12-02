@@ -89,5 +89,4 @@ public class STU_fragment extends Fragment implements SearchView.OnQueryTextList
         }
         return filteredModelList;
     }
-
 }

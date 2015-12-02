@@ -13,6 +13,8 @@
     tools:context="com.ryan.view_siso.activity.FindStuidActivity"
     tools:showIn="@layout/activity_find_stuid">
 
+
+
     <android.support.v7.widget.CardView
         android:id="@+id/cardview01"
         android:layout_width="wrap_content"

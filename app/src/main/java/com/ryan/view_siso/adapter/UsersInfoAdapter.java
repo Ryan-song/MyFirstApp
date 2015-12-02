@@ -39,7 +39,6 @@ public class UsersInfoAdapter extends RecyclerView.Adapter {
             }
         });
 
-
         MyViewHold vh = new MyViewHold(itemview);
         return vh;
     }
@@ -48,16 +47,10 @@ public class UsersInfoAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         UserInfoBean mUserInfoBean = users.get(position);
         MyViewHold myViewHold = (MyViewHold) holder;
+
         myViewHold.st_name.setText(mUserInfoBean.getStuName());
-//        if (mUserInfoBean.getSex().equals("女")){
-//            myViewHold.st_name.setTextColor(Color.parseColor("#FF4081"));
-//        }
-//        else {
-//            myViewHold.st_name.setTextColor(Color.parseColor("#1976D2"));
-//        }
-//        myViewHold.st_id.setText(mUserInfoBean.getStuID());
-        String subString = mUserInfoBean.getStuID().substring(6);
-        myViewHold.st_id.setText(subString);
+        myViewHold.st_phone.setText(mUserInfoBean.getMobile());
+        myViewHold.st_id.setText(mUserInfoBean.getStuID().substring(6));
         myViewHold.itemView.setTag(mUserInfoBean);
     }
 
@@ -69,14 +62,14 @@ public class UsersInfoAdapter extends RecyclerView.Adapter {
     public static class MyViewHold extends RecyclerView.ViewHolder{
 
         private TextView st_name;
-//        private TextView st_id;
+        private TextView st_phone;
         private TextView st_id;
 
         public MyViewHold(View itemView) {
             super(itemView);
 
             st_name = (TextView) itemView.findViewById(R.id.st_name);
-//            st_id = (TextView) itemView.findViewById(R.id.st_id);
+            st_phone = (TextView) itemView.findViewById(R.id.st_phone);
             st_id = (TextView) itemView.findViewById(R.id.st_id);
         }
     }

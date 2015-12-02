@@ -18,6 +18,11 @@ import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
 
+
+/**
+ *  此油 Main2Activity代替
+ */
+
 public class FindClassActivity extends AppCompatActivity {
 
     private ArrayList<UserInfoBean> user;

@@ -36,6 +36,7 @@ import com.ryan.view_siso.bean.UserLoginBean;
 
 import org.json.JSONObject;
 
+import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText mEditText;
     private Button mButton;
     private CheckBox mCheckBox;
-    private FloatingActionButton mFab;
 
     private SharedPreferences sp;
     private String username;
@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initToolBar();
         initView();
         clickEvent();
 
@@ -81,11 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-    }
 
     private void clickEvent() {
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -123,25 +117,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "点击YES,可以短信回复提建议哦～", Snackbar.LENGTH_LONG)
-                        .setAction("YES", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-//                                SmsUtil.sendSmsWithDefault(getApplicationContext());
-                                Uri smsToUri = Uri.parse("smsto:15995490890");
-                                Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
-                                intent.putExtra("sms_body", "谢谢支持!~~" + '\n');
-                                startActivity(intent);
-                            }
-                        })
-                        .setActionTextColor(getResources().getColor(R.color.green_500))
-                        .show();
-            }
-        });
     }
 
     private void JsonObjectRequest() {
@@ -218,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
         mEditText = (EditText) findViewById(R.id.et_pass);
         mButton = (Button) findViewById(R.id.btn_signin);
         mCheckBox = (CheckBox) findViewById(R.id.cb_login);
-        mFab = (FloatingActionButton) findViewById(R.id.fab);
         mCheckBox.setChecked(true);
 
         sp = this.getSharedPreferences("SP", MODE_PRIVATE);
@@ -228,15 +202,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        if (keyCode ==KeyEvent.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             //获取当前系统时间的毫秒数
             currentBackTime = System.currentTimeMillis();
             Log.i("currentBackTime", String.valueOf(currentBackTime));
-            if (currentBackTime-lastBackTime>2*1000){
-                Snackbar.make(mCoordinatorLayout,"再按一次返回键退出",Snackbar.LENGTH_LONG).show();
+            if (currentBackTime - lastBackTime > 2 * 1000) {
+                Snackbar.make(mCoordinatorLayout, "再按一次返回键退出", Snackbar.LENGTH_LONG).show();
                 lastBackTime = currentBackTime;
                 Log.i("lastBackTime", String.valueOf(lastBackTime));
-            }else {
+            } else {
                 finish();
             }
             return true;
