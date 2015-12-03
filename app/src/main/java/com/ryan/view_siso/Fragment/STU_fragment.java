@@ -1,5 +1,6 @@
 package com.ryan.view_siso.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ryan.view_siso.R;
+import com.ryan.view_siso.activity.FindClassActivity;
+import com.ryan.view_siso.activity.FindClassUserActivity;
 import com.ryan.view_siso.adapter.UsersInfoAdapter;
 import com.ryan.view_siso.bean.UserInfoBean;
 
@@ -24,7 +27,7 @@ import java.util.List;
 /**
  * Created by air on 15/11/26.
  */
-public class STU_fragment extends Fragment implements SearchView.OnQueryTextListener{
+public class STU_fragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerView;
     private ArrayList<UserInfoBean> users;
@@ -55,12 +58,25 @@ public class STU_fragment extends Fragment implements SearchView.OnQueryTextList
         users = getActivity().getIntent().getParcelableArrayListExtra("users");
 
         adapter = new UsersInfoAdapter(users);
+        adapter.setOnItemClickListener(new UsersInfoAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, UserInfoBean data) {
+                /**
+                 *  传递一个对象
+                 */
+                Intent intent = new Intent(getActivity(), FindClassUserActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelableArrayList("users", data);
+                intent.putExtra("user", data);
+                startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_main,menu);
+        inflater.inflate(R.menu.menu_main, menu);
         final MenuItem item = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         searchView.setOnQueryTextListener(this);
@@ -78,10 +94,10 @@ public class STU_fragment extends Fragment implements SearchView.OnQueryTextList
         return true;
     }
 
-    private List<UserInfoBean> filter(List<UserInfoBean> userInfoBean,String newText){
+    private List<UserInfoBean> filter(List<UserInfoBean> userInfoBean, String newText) {
         newText = newText.toLowerCase();
         final List<UserInfoBean> filteredModelList = new ArrayList<>();
-        for (UserInfoBean model : userInfoBean){
+        for (UserInfoBean model : userInfoBean) {
             final String text = model.getStuName().toLowerCase();
             if (text.contains(newText)) {
                 filteredModelList.add(model);

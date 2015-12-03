@@ -25,26 +25,30 @@
         <activity
             android:name=".activity.FindActivity"
             android:label="@string/title_activity_find"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.FindStuidActivity"
             android:label="@string/title_activity_find_stuid"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.FindClassActivity"
             android:label="@string/title_activity_find_class"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.FindNameActivity"
             android:label="@string/title_activity_find_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.FindClassUserActivity"
             android:label="@string/title_activity_find_class_user"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.Main2Activity"
             android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.TeaInfoActivity"
+            android:label="@string/title_activity_tea_info"
             android:theme="@style/AppTheme"></activity>
     </application>
 

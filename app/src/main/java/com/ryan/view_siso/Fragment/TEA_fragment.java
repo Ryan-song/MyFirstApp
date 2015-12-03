@@ -1,5 +1,6 @@
 package com.ryan.view_siso.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,8 +27,12 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ryan.view_siso.R;
+import com.ryan.view_siso.activity.FindClassUserActivity;
+import com.ryan.view_siso.activity.Main2Activity;
+import com.ryan.view_siso.activity.TeaInfoActivity;
 import com.ryan.view_siso.adapter.TeaItemAdapter;
 import com.ryan.view_siso.bean.TeaInfoBean;
+import com.ryan.view_siso.bean.UserInfoBean;
 
 import org.json.JSONArray;
 
@@ -132,6 +137,21 @@ public class TEA_fragment extends Fragment implements SearchView.OnQueryTextList
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
                             teaItemAdapter = new TeaItemAdapter(teas);
+
+                            teaItemAdapter.setOnItemClickListener(new TeaItemAdapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, TeaInfoBean data) {
+                                    /**
+                                     *  传递一个对象
+                                     */
+                                    Intent intent = new Intent(getActivity(),TeaInfoActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelableArrayList("users", data);
+                                    intent.putExtra("teas", data);
+                                    startActivity(intent);
+                                }
+                            });
+
                             recyclerView.setAdapter(teaItemAdapter);
                         } else {
                             Toast.makeText(getActivity(), "网络延迟", Toast.LENGTH_LONG).show();

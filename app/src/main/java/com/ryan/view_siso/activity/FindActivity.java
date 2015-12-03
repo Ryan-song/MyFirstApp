@@ -1,7 +1,9 @@
 package com.ryan.view_siso.activity;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -26,6 +29,7 @@ import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.AllClassNameBean;
 import com.ryan.view_siso.bean.UserInfoBean;
@@ -56,31 +60,24 @@ public class FindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find);
 
+        initWindow();
+
         initToolBar();
         initView();
         clickEvent();
 
         JsonArrayRequest_get_allclassname();
+    }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "点击YES,可以短信回复提建议哦～", Snackbar.LENGTH_LONG)
-                        .setAction("YES", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-//                                SmsUtil.sendSmsWithDefault(getApplicationContext());
-                                Uri smsToUri = Uri.parse("smsto:15995490890");
-                                Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
-                                intent.putExtra("sms_body", "谢谢支持!~~" + '\n');
-                                startActivity(intent);
-                            }
-                        })
-                        .setActionTextColor(getResources().getColor(R.color.green_500))
-                        .show();
-            }
-        });
+    private SystemBarTintManager tintManager;
+    private void initWindow(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintColor(getResources().getColor(R.color.app_main_color));
+            tintManager.setStatusBarTintEnabled(true);
+        }
     }
 
     /**
@@ -335,7 +332,7 @@ public class FindActivity extends AppCompatActivity {
                              * 更改地方1
                              */
 //                            Intent intent = new Intent(FindActivity.this, FindClassActivity.class);
-                            Intent intent = new Intent(FindActivity.this,Main2Activity.class);
+                            Intent intent = new Intent(FindActivity.this, Main2Activity.class);
 
                             Bundle bundle = new Bundle();
                             bundle.putParcelableArrayList("users", user);

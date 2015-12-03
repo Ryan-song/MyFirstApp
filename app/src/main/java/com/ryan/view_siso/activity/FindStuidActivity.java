@@ -3,18 +3,12 @@ package com.ryan.view_siso.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ryan.view_siso.R;
-import com.ryan.view_siso.adapter.UserInfoAdapter;
 import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
@@ -87,17 +81,17 @@ public class FindStuidActivity extends AppCompatActivity {
 
     private void initView() {
         StuName = (TextView) findViewById(R.id.stu_name);
-        STUClass = (TextView) findViewById(R.id.stu_class);
-        Sex = (TextView) findViewById(R.id.stu_sex);
-        Mobile = (TextView) findViewById(R.id.stu_phone);
+        STUClass = (TextView) findViewById(R.id.tea_bumen);
+        Sex = (TextView) findViewById(R.id.tea_sex);
+        Mobile = (TextView) findViewById(R.id.tea_phone);
 
-        Birthday = (TextView) findViewById(R.id.bornInfo);
-        EMail = (TextView) findViewById(R.id.emailInfo);
-        BankCard = (TextView) findViewById(R.id.bankCareInfo);
-        Dept = (TextView) findViewById(R.id.departInfo);
-        Specialty = (TextView) findViewById(R.id.proInfo);
-        Grade = (TextView) findViewById(R.id.gradeInfo);
-        DormNumber = (TextView) findViewById(R.id.dromInfo);
+        Birthday = (TextView) findViewById(R.id.zhigonghaoInfo);
+        EMail = (TextView) findViewById(R.id.xingminInfo);
+        BankCard = (TextView) findViewById(R.id.youjianInfo);
+        Dept = (TextView) findViewById(R.id.xingbieInfo);
+        Specialty = (TextView) findViewById(R.id.bumenInfo);
+        Grade = (TextView) findViewById(R.id.officephoneInfo);
+        DormNumber = (TextView) findViewById(R.id.cellphoneInfo);
 
         imageViewBack = (ImageView) findViewById(R.id.back);
     }

@@ -44,7 +44,6 @@
                 android:text="15995490890" />
 
             <TextView
-
                 android:id="@+id/st_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

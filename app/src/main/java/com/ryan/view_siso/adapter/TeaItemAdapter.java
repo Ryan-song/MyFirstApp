@@ -19,6 +19,7 @@ import java.util.List;
 public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewHold> {
 
     private ArrayList<TeaInfoBean> teachers;
+    private OnItemClickListener mListener;
 
     public TeaItemAdapter(ArrayList<TeaInfoBean> teachers) {
         this.teachers = teachers;
@@ -27,6 +28,16 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
     @Override
     public teaViewHold onCreateViewHolder(ViewGroup parent, int viewType) {
         final  View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.teainfo_item,parent,false);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener!=null){
+                    mListener.onItemClick(v, (TeaInfoBean) itemView.getTag());
+                }
+            }
+        });
+
         return new teaViewHold(itemView);
     }
 
@@ -35,6 +46,8 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
         TeaInfoBean teacherinfo = teachers.get(position);
         holder.depat.setText(teacherinfo.getBumen());
         holder.name.setText(teacherinfo.getXingmin());
+        holder.cellphone.setText(teacherinfo.getCellphone());
+        holder.itemView.setTag(teacherinfo);
     }
 
     @Override
@@ -46,13 +59,26 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
 
         private TextView name;
         private TextView depat;
+        private TextView cellphone;
 
         public teaViewHold(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.xingmin);
-            depat = (TextView) itemView.findViewById(R.id.bumen);
+            depat = (TextView) itemView.findViewById(R.id.tea_bumen);
+            cellphone = (TextView) itemView.findViewById(R.id.cellphone);
         }
     }
+
+
+    public interface OnItemClickListener{
+        public void onItemClick(View view,TeaInfoBean data);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.mListener = listener;
+    }
+
+
     public void setFilter(List<TeaInfoBean> userInfoBeen){
         teachers = new ArrayList<>();
         teachers.addAll(userInfoBeen);

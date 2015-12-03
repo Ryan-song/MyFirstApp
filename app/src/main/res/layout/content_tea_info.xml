@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ryan.view_siso.activity.TeaInfoActivity"
+    tools:showIn="@layout/activity_tea_info">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -12,14 +15,15 @@
         android:background="#3F51B5">
 
         <ImageView
-            android:padding="12dp"
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />
+            android:layout_margin="6dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_left" />
 
         <ImageView
-            android:id="@+id/stu_img"
+            android:id="@+id/tea_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -27,10 +31,10 @@
             android:src="@drawable/ic_user" />
 
         <TextView
-            android:id="@+id/stu_name"
+            android:id="@+id/tea_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stu_img"
+            android:layout_below="@+id/tea_img"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp"
@@ -44,7 +48,7 @@
             android:id="@+id/baseInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stu_name"
+            android:layout_below="@+id/tea_name"
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
@@ -56,11 +60,11 @@
                 app:cardBackgroundColor="#1A237E">
 
                 <TextView
-                    android:id="@+id/stu_class"
+                    android:id="@+id/tea_bumen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="6dp"
-                    android:text="采购141"
+                    android:text="公共学科部"
                     android:textColor="#FFFFFF" />
             </android.support.v7.widget.CardView>
 
@@ -74,7 +78,7 @@
                 app:cardBackgroundColor="#1A237E">
 
                 <TextView
-                    android:id="@+id/stu_sex"
+                    android:id="@+id/tea_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="6dp"
@@ -93,11 +97,11 @@
                 app:cardBackgroundColor="#1A237E">
 
                 <TextView
-                    android:id="@+id/stu_phone"
+                    android:id="@+id/tea_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="6dp"
-                    android:text="15995490890"
+                    android:text="13584895567"
                     android:textColor="#FFFFFF" />
             </android.support.v7.widget.CardView>
 
@@ -125,7 +129,7 @@
 
             <View
                 android:layout_width="5dp"
-                android:layout_height="280dp"
+                android:layout_height="270dp"
                 android:layout_below="@+id/redline"
                 android:layout_marginLeft="21dp"
                 android:background="#3F51B5" />
@@ -139,19 +143,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/born"
+                    android:id="@+id/zhigonghao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="出生年月" />
+                    android:text="职工号" />
 
                 <TextView
-                    android:id="@+id/bornInfo"
+                    android:id="@+id/zhigonghaoInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="36dp"
-                    android:layout_toRightOf="@+id/born"
-                    android:text="1996-02-02"
+                    android:layout_marginLeft="49dp"
+                    android:layout_toRightOf="@+id/zhigonghao"
+                    android:text="20080526004"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -172,19 +176,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/xingmin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="电子邮件" />
+                    android:text="姓名" />
 
                 <TextView
-                    android:id="@+id/emailInfo"
+                    android:id="@+id/xingminInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="36dp"
-                    android:layout_toRightOf="@+id/email"
-                    android:text="1102495599@qq.com"
+                    android:layout_marginLeft="64dp"
+                    android:layout_toRightOf="@+id/xingmin"
+                    android:text="王冬莉"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -205,19 +209,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/bankCard"
+                    android:id="@+id/youjian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="银行卡号" />
+                    android:text="电子邮件" />
 
                 <TextView
-                    android:id="@+id/bankCareInfo"
+                    android:id="@+id/youjianInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="36dp"
-                    android:layout_toRightOf="@+id/bankCard"
-                    android:text="111111111111111111"
+                    android:layout_toRightOf="@+id/youjian"
+                    android:text="wangdl@siso.edu.cn"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -238,19 +242,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/depart"
+                    android:id="@+id/xingbie"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="系部" />
+                    android:text="性别" />
 
                 <TextView
-                    android:id="@+id/departInfo"
+                    android:id="@+id/xingbieInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="64dp"
-                    android:layout_toRightOf="@+id/depart"
-                    android:text="商学院"
+                    android:layout_toRightOf="@+id/xingbie"
+                    android:text="女"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -271,19 +275,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/pro"
+                    android:id="@+id/bumen_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="专业" />
+                    android:text="部门" />
 
                 <TextView
-                    android:id="@+id/proInfo"
+                    android:id="@+id/bumenInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="64dp"
-                    android:layout_toRightOf="@+id/pro"
-                    android:text="嵌入式技术与应用"
+                    android:layout_toRightOf="@+id/bumen_2"
+                    android:text="公共学科部"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -305,19 +309,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/grade"
+                    android:id="@+id/officephone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="年级" />
+                    android:text="办公号码" />
 
                 <TextView
-                    android:id="@+id/gradeInfo"
+                    android:id="@+id/officephoneInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="64dp"
-                    android:layout_toRightOf="@+id/grade"
-                    android:text="2015"
+                    android:layout_marginLeft="36dp"
+                    android:layout_toRightOf="@+id/officephone"
+                    android:text="2610"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -338,19 +342,19 @@
                 android:padding="12dp">
 
                 <TextView
-                    android:id="@+id/drom"
+                    android:id="@+id/cellphone_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:text="宿舍" />
+                    android:text="电话号码" />
 
                 <TextView
-                    android:id="@+id/dromInfo"
+                    android:id="@+id/cellphoneInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="64dp"
-                    android:layout_toRightOf="@+id/drom"
-                    android:text="B栋2013"
+                    android:layout_marginLeft="36dp"
+                    android:layout_toRightOf="@+id/cellphone_2"
+                    android:text="13584895567"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -363,4 +367,5 @@
 
         </RelativeLayout>
     </ScrollView>
+
 </RelativeLayout>

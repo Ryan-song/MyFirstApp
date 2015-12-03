@@ -1,8 +1,11 @@
 package com.ryan.view_siso.activity;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +17,9 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -29,6 +35,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.ryan.view_siso.NetUtil;
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.SmsUtil;
@@ -55,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     private String username;
     private String userpass;
 
+
+
     //上次按下返回键的系统时间
     private long lastBackTime = 0;
     //当前按下返回键的系统时间
@@ -68,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
         clickEvent();
 
+        initWindow();
+
         if (!NetUtil.isConnected(this)) {
             Snackbar.make(mCoordinatorLayout, "未接入网络", Snackbar.LENGTH_LONG).show();
         }
@@ -79,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    private SystemBarTintManager tintManager;
+    private void initWindow(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintColor(getResources().getColor(R.color.app_main_color));
+            tintManager.setStatusBarTintEnabled(true);
+        }
+    }
+
+
 
 
     private void clickEvent() {

@@ -6,6 +6,6 @@
     android:fitsSystemWindows="true"
     tools:context="com.ryan.view_siso.activity.FindStuidActivity">
 
-    <include layout="@layout/content_find_stuid02" />
+    <include layout="@layout/content_find_stuid" />
 
 </android.support.design.widget.CoordinatorLayout>

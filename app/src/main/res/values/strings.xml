@@ -14,7 +14,7 @@
     <string name="hint_stuid">学号查询</string>
     <string name="hint_class">班级查询,输入“采购,嵌入……”</string>
     <string name="hint_name">姓名查询</string>
-    <string name="tofind">查询</string>
+    <string name="tofind">查\t\t询</string>
     <string name="title_activity_find_class">FindClassActivity</string>
     <string name="title_activity_find_name">FindNameActivity</string>
     <string name="title_activity_find_class_user">FindClassUserActivity</string>
@@ -23,6 +23,8 @@
 
 
     <string name="action_search">action_search</string>
+    <string name="loginBtn">登\t\t录</string>
+    <string name="title_activity_tea_info">TeaInfoActivity</string>
 
 
 </resources>

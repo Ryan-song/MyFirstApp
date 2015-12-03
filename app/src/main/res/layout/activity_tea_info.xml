@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/coordinatorLayout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/qq">
+    tools:context="com.ryan.view_siso.activity.TeaInfoActivity">
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_tea_info" />
 
 </android.support.design.widget.CoordinatorLayout>
