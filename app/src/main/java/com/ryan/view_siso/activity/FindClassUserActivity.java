@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ryan.view_siso.R;
@@ -34,6 +35,17 @@ public class FindClassUserActivity extends AppCompatActivity {
     private TextView Grade;
     private TextView DormNumber;
 
+    private TextView pin;
+    private TextView teacher;
+    private TextView qq;
+    private TextView Hometown;
+    private TextView Nation;
+    private TextView ZipCode;
+    private TextView FMobile;
+    private TextView MMobile;
+
+    private ImageView imageViewBack;
+
 
     private UserInfoBean user;
 
@@ -61,11 +73,27 @@ public class FindClassUserActivity extends AppCompatActivity {
         Grade.setText(user.getGrade());
         DormNumber.setText(user.getDormNumber());
 
+        pin.setText(user.getPIN());
+        teacher.setText(user.getTeacher());
+        qq.setText(user.getQQ());
+        Hometown.setText(user.getHometown());
+        Nation.setText(user.getNation());
+        ZipCode.setText(user.getZipCode());
+        FMobile.setText(user.getFMobile());
+        MMobile.setText(user.getMMobile());
+
 
         Mobile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toCall(Mobile.getText().toString());
+            }
+        });
+
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
@@ -90,6 +118,17 @@ public class FindClassUserActivity extends AppCompatActivity {
         Specialty = (TextView) findViewById(R.id.bumenInfo);
         Grade = (TextView) findViewById(R.id.officephoneInfo);
         DormNumber = (TextView) findViewById(R.id.cellphoneInfo);
+
+        pin = (TextView) findViewById(R.id.pinInfo);
+        teacher = (TextView) findViewById(R.id.teacherInfo);
+        qq = (TextView) findViewById(R.id.qqInfo);
+        Hometown = (TextView) findViewById(R.id.hometownInfo);
+        Nation = (TextView) findViewById(R.id.nationInfo);
+        ZipCode = (TextView) findViewById(R.id.zipCodeInfo);
+        FMobile = (TextView) findViewById(R.id.FMobileInfo);
+        MMobile = (TextView) findViewById(R.id.MMobileInfo);
+
+        imageViewBack = (ImageView) findViewById(R.id.back);
 
     }
 

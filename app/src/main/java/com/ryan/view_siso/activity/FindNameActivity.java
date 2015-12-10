@@ -1,15 +1,11 @@
 package com.ryan.view_siso.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -54,26 +50,6 @@ public class FindNameActivity extends AppCompatActivity {
 
         mRecyclerview.setAdapter(mUserinfoAdapter);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "点击YES,可以短信回复提建议哦～", Snackbar.LENGTH_LONG)
-                        .setAction("YES", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-//                                SmsUtil.sendSmsWithDefault(getApplicationContext());
-                                Uri smsToUri = Uri.parse("smsto:15995490890");
-                                Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
-                                intent.putExtra("sms_body", "谢谢支持!~~" + '\n');
-                                startActivity(intent);
-                            }
-                        })
-                        .setActionTextColor(getResources().getColor(R.color.green_500))
-                        .show();
-            }
-        });
     }
 
     private void initView() {

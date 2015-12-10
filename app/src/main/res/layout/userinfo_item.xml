@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
+        android:foreground="?android:attr/selectableItemBackground"
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,19 +18,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/st_img"
+                android:id="@+id/tea_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:src="@drawable/ic_user" />
+                android:src="@drawable/user_0" />
 
             <TextView
-                android:id="@+id/st_name"
+                android:id="@+id/st_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
-                android:layout_toRightOf="@+id/st_img"
+                android:layout_toRightOf="@+id/tea_img"
                 android:text="岩松"
                 android:textStyle="bold" />
 
@@ -37,8 +38,8 @@
                 android:id="@+id/st_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/st_name"
-                android:layout_below="@+id/st_name"
+                android:layout_alignLeft="@+id/st_class"
+                android:layout_below="@+id/st_class"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="15995490890" />

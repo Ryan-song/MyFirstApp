@@ -4,14 +4,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.TeaInfoBean;
-import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by air on 15/11/27.
@@ -20,6 +21,9 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
 
     private ArrayList<TeaInfoBean> teachers;
     private OnItemClickListener mListener;
+
+    private int[] imgRId =
+            {R.drawable.user_0,R.drawable.user_3,R.drawable.user_5};
 
     public TeaItemAdapter(ArrayList<TeaInfoBean> teachers) {
         this.teachers = teachers;
@@ -47,6 +51,9 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
         holder.depat.setText(teacherinfo.getBumen());
         holder.name.setText(teacherinfo.getXingmin());
         holder.cellphone.setText(teacherinfo.getCellphone());
+
+        holder.tea_img.setImageResource(imgRId[new Random().nextInt(3)]);
+
         holder.itemView.setTag(teacherinfo);
     }
 
@@ -60,12 +67,15 @@ public class TeaItemAdapter extends RecyclerView.Adapter<TeaItemAdapter.teaViewH
         private TextView name;
         private TextView depat;
         private TextView cellphone;
+        private ImageView tea_img;
 
         public teaViewHold(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.xingmin);
             depat = (TextView) itemView.findViewById(R.id.tea_bumen);
             cellphone = (TextView) itemView.findViewById(R.id.cellphone);
+
+            tea_img = (ImageView) itemView.findViewById(R.id.tea_img);
         }
     }
 

@@ -12,10 +12,12 @@ import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class FindStuidActivity extends AppCompatActivity {
 
     private static final String TAG = FindStuidActivity.class.getSimpleName();
+
     private TextView StuName;
     private TextView STUClass;
     private TextView Sex;
@@ -29,10 +31,26 @@ public class FindStuidActivity extends AppCompatActivity {
     private TextView Grade;
     private TextView DormNumber;
 
+    private TextView pin;
+    private TextView teacher;
+    private TextView qq;
+    private TextView Hometown;
+    private TextView Nation;
+    private TextView ZipCode;
+    private TextView FMobile;
+    private TextView MMobile;
+
+
     private ImageView imageViewBack;
+    private ImageView imageView;
 
 
     private ArrayList<UserInfoBean> user;
+
+
+    private int[] imgRId =
+            {R.drawable.user_0,R.drawable.user_3,R.drawable.user_5};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +74,15 @@ public class FindStuidActivity extends AppCompatActivity {
         Grade.setText(user.get(0).getGrade());
         DormNumber.setText(user.get(0).getDormNumber());
 
+        pin.setText(user.get(0).getPIN());
+        teacher.setText(user.get(0).getTeacher());
+        qq.setText(user.get(0).getQQ());
+        Hometown.setText(user.get(0).getHometown());
+        Nation.setText(user.get(0).getNation());
+        ZipCode.setText(user.get(0).getZipCode());
+        FMobile.setText(user.get(0).getFMobile());
+        MMobile.setText(user.get(0).getMMobile());
+
 
         Mobile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +97,11 @@ public class FindStuidActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        imageView.setImageResource(imgRId[new Random().nextInt(3)]);
+
     }
+
 
     private void toCall(String s) {
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + s));
@@ -93,7 +124,20 @@ public class FindStuidActivity extends AppCompatActivity {
         Grade = (TextView) findViewById(R.id.officephoneInfo);
         DormNumber = (TextView) findViewById(R.id.cellphoneInfo);
 
+        pin = (TextView) findViewById(R.id.pinInfo);
+        teacher = (TextView) findViewById(R.id.teacherInfo);
+        qq = (TextView) findViewById(R.id.qqInfo);
+        Hometown = (TextView) findViewById(R.id.hometownInfo);
+        Nation = (TextView) findViewById(R.id.nationInfo);
+        ZipCode = (TextView) findViewById(R.id.zipCodeInfo);
+        FMobile = (TextView) findViewById(R.id.FMobileInfo);
+        MMobile = (TextView) findViewById(R.id.MMobileInfo);
+
+
         imageViewBack = (ImageView) findViewById(R.id.back);
+        imageView = (ImageView) findViewById(R.id.stu_img);
+
+
     }
 
 

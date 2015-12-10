@@ -33,9 +33,7 @@ public class Main2Activity extends AppCompatActivity {
 
         initToolbar();
         initView();
-
-
-
+        
     }
 
     private void initView() {

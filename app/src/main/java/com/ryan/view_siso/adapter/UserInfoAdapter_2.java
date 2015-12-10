@@ -4,12 +4,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.UserInfoBean;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by air on 15/11/8.
@@ -20,6 +22,9 @@ public class UserInfoAdapter_2 extends RecyclerView.Adapter {
 
     private ArrayList<UserInfoBean> users;
     private OnItemClickListener mListener;
+
+    private int[] imgRId =
+            {R.drawable.user_0,R.drawable.user_3,R.drawable.user_5};
 
     public UserInfoAdapter_2(ArrayList<UserInfoBean> users) {
         this.users = users;
@@ -49,8 +54,10 @@ public class UserInfoAdapter_2 extends RecyclerView.Adapter {
 
         myViewHold.st_class.setText(userInfoBean.getSTUClass());
         myViewHold.st_id.setText(userInfoBean.getStuID());
-//        myViewHold.st_sex.setText(userInfoBean.getSex());
-        myViewHold.itemView.setTag(userInfoBean);
+        myViewHold.st_sex.setText(userInfoBean.getSex());
+
+        myViewHold.st_img.setImageResource(imgRId[new Random().nextInt(3)]);
+
     }
 
     @Override
@@ -63,13 +70,15 @@ public class UserInfoAdapter_2 extends RecyclerView.Adapter {
 
         private TextView st_class;
         private TextView st_id;
-//        private TextView st_sex;
+        private TextView st_sex;
+        private ImageView st_img;
 
         public MyViewHold(View itemView) {
             super(itemView);
             st_class = (TextView) itemView.findViewById(R.id.st_class);
             st_id = (TextView) itemView.findViewById(R.id.st_id);
-//            st_sex = (TextView) itemView.findViewById(R.id.st_sex);
+            st_sex = (TextView) itemView.findViewById(R.id.st_sex);
+            st_img = (ImageView) itemView.findViewById(R.id.tea_img);
 
         }
     }

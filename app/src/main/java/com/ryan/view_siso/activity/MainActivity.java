@@ -48,6 +48,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    // TODO: 15/12/8 https://github.com/lzyzsd/AndroidRandomColor 
+    
 
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String LOGIN_FAIL = "未找到";

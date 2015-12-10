@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ryan.view_siso.R;
@@ -28,6 +29,8 @@ public class TeaInfoActivity extends AppCompatActivity {
     private TextView tea_bumen;
     private TextView tea_sex;
     private TextView tea_phone;
+
+    private ImageView imageViewBack;
 
     private TeaInfoBean tea;
 
@@ -61,6 +64,13 @@ public class TeaInfoActivity extends AppCompatActivity {
             }
         });
 
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void toCall(String s) {
@@ -83,5 +93,7 @@ public class TeaInfoActivity extends AppCompatActivity {
         bumen = (TextView) findViewById(R.id.bumenInfo);
         officephone = (TextView) findViewById(R.id.officephoneInfo);
         cellphone = (TextView) findViewById(R.id.cellphoneInfo);
+
+        imageViewBack = (ImageView) findViewById(R.id.back);
     }
 }

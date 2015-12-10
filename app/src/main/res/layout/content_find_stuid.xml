@@ -9,14 +9,14 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#3F51B5">
+        android:background="#4cbff5">
 
         <ImageView
-            android:layout_margin="6dp"
-            android:padding="10dp"
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:padding="10dp"
             android:src="@drawable/ic_left" />
 
         <ImageView
@@ -54,7 +54,8 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#1A237E">
+                app:cardBackgroundColor="#1c99d4"
+                app:cardCornerRadius="10dp">
 
                 <TextView
                     android:id="@+id/tea_bumen"
@@ -72,7 +73,8 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#1A237E">
+                app:cardBackgroundColor="#1c99d4"
+                app:cardCornerRadius="10dp">
 
                 <TextView
                     android:id="@+id/tea_sex"
@@ -91,7 +93,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#1A237E">
+                app:cardBackgroundColor="#1c99d4"
+                app:cardCornerRadius="10dp">
 
                 <TextView
                     android:id="@+id/tea_phone"
@@ -126,7 +129,7 @@
 
             <View
                 android:layout_width="5dp"
-                android:layout_height="270dp"
+                android:layout_height="740dp"
                 android:layout_below="@+id/redline"
                 android:layout_marginLeft="21dp"
                 android:background="#3F51B5" />
@@ -361,6 +364,275 @@
                 android:layout_below="@+id/dromLayout"
                 android:layout_marginLeft="26dp"
                 android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/pinLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/dromLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="身份证号" />
+
+                <TextView
+                    android:id="@+id/pinInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_toRightOf="@+id/pin"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/pinLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/teacherlayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/pinLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="老师" />
+
+                <TextView
+                    android:id="@+id/teacherInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_toRightOf="@+id/teacher"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/teacherlayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/qqLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/teacherlayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/qq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="Q  Q" />
+
+                <TextView
+                    android:id="@+id/qqInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_toRightOf="@+id/qq"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/qqLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/hometownLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/qqLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/hometown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="住址" />
+
+                <TextView
+                    android:id="@+id/hometownInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_toRightOf="@+id/hometown"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/hometownLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/nationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/hometownLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/nation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="民族" />
+
+                <TextView
+                    android:id="@+id/nationInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_toRightOf="@+id/nation"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/nationLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/zipCodeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/nationLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/zipCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="邮编" />
+
+                <TextView
+                    android:id="@+id/zipCodeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_toRightOf="@+id/zipCode"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/zipCodeLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/FMobileLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/zipCodeLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/FMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="父亲大人" />
+
+                <TextView
+                    android:id="@+id/FMobileInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_toRightOf="@+id/FMobile"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/FMobileLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:id="@+id/MMobileLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/FMobileLayout"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/MMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="母亲大人" />
+
+                <TextView
+                    android:id="@+id/MMobileInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_toRightOf="@+id/MMobile"
+                    android:text="B栋2013"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/MMobileLayout"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/darker_gray" />
+
+
+
+
+
 
         </RelativeLayout>
     </ScrollView>
