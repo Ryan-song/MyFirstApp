@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ryan.view_siso.R;
-import com.ryan.view_siso.activity.FindClassActivity;
 import com.ryan.view_siso.activity.FindClassUserActivity;
 import com.ryan.view_siso.adapter.UsersInfoAdapter;
 import com.ryan.view_siso.bean.UserInfoBean;

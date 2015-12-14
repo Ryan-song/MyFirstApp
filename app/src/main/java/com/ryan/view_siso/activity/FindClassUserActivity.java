@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ryan.view_siso.R;
 import com.ryan.view_siso.bean.UserInfoBean;
+
+import java.util.Random;
 
 /**
  * 此类和FindStuidActivity,可重构。重构失败，返回类型不同
@@ -45,20 +48,23 @@ public class FindClassUserActivity extends AppCompatActivity {
     private TextView MMobile;
 
     private ImageView imageViewBack;
+    private ImageView imageView;
 
 
     private UserInfoBean user;
+
+    private int[] imgRId =
+            {R.drawable.user_0, R.drawable.user_3, R.drawable.user_5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_stuid);
 
+        user = this.getIntent().getParcelableExtra("user");//得到一个对象
+//        Log.d("dddd", user.getStuName());
 
         initView();
-
-        Intent intent = getIntent();
-        user = intent.getParcelableExtra("user");//得到一个对象
 
         StuName.setText(user.getStuName());
         STUClass.setText(user.getSTUClass());
@@ -83,19 +89,14 @@ public class FindClassUserActivity extends AppCompatActivity {
         MMobile.setText(user.getMMobile());
 
 
-        Mobile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toCall(Mobile.getText().toString());
-            }
-        });
-
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        imageView.setImageResource(imgRId[new Random().nextInt(3)]);
 
     }
 
@@ -106,7 +107,7 @@ public class FindClassUserActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        StuName = (TextView) findViewById(R.id.stu_name);
+        StuName = (TextView) findViewById(R.id.stttttt_name);
         STUClass = (TextView) findViewById(R.id.tea_bumen);
         Sex = (TextView) findViewById(R.id.tea_sex);
         Mobile = (TextView) findViewById(R.id.tea_phone);
@@ -130,6 +131,7 @@ public class FindClassUserActivity extends AppCompatActivity {
 
         imageViewBack = (ImageView) findViewById(R.id.back);
 
+        imageView = (ImageView) findViewById(R.id.stu_img);
     }
 
 

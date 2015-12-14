@@ -43,8 +43,7 @@ public class UserInfoAdapter_2 extends RecyclerView.Adapter {
             }
         });
 
-        MyViewHold vh = new MyViewHold(itemview);
-        return vh;
+        return new MyViewHold(itemview);
     }
 
     @Override
@@ -58,6 +57,7 @@ public class UserInfoAdapter_2 extends RecyclerView.Adapter {
 
         myViewHold.st_img.setImageResource(imgRId[new Random().nextInt(3)]);
 
+        myViewHold.itemView.setTag(userInfoBean);
     }
 
     @Override

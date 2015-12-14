@@ -111,7 +111,7 @@ public class FindStuidActivity extends AppCompatActivity {
 
 
     private void initView() {
-        StuName = (TextView) findViewById(R.id.stu_name);
+        StuName = (TextView) findViewById(R.id.stttttt_name);
         STUClass = (TextView) findViewById(R.id.tea_bumen);
         Sex = (TextView) findViewById(R.id.tea_sex);
         Mobile = (TextView) findViewById(R.id.tea_phone);

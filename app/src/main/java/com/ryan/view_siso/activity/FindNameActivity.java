@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,6 +45,7 @@ public class FindNameActivity extends AppCompatActivity {
             public void onItemClick(View view, UserInfoBean data) {
                 Intent intent = new Intent(FindNameActivity.this,FindClassUserActivity.class);
                 intent.putExtra("user", data);
+                Log.d("fffffff", "name"+data.getStuName());
                 startActivity(intent);
             }
         });
@@ -53,7 +55,7 @@ public class FindNameActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        name = (TextView) findViewById(R.id.stu_name);
+        name = (TextView) findViewById(R.id.stttttt_name);
         number = (TextView) findViewById(R.id.stu_number);
         mRecyclerview = (RecyclerView) findViewById(R.id.userInfo);
     }

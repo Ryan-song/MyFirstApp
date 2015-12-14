@@ -25,6 +25,7 @@
     <string name="action_search">action_search</string>
     <string name="loginBtn">登\t\t录</string>
     <string name="title_activity_tea_info">TeaInfoActivity</string>
+    <string name="title_activity_find2">FindActivity2</string>
 
 
 </resources>
