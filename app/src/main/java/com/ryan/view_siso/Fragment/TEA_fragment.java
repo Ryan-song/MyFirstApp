@@ -4,29 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+<<<<<<< HEAD
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
+=======
+>>>>>>> parent of aed4d52... 增加TEA_fragment的内容
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.ryan.view_siso.R;
+<<<<<<< HEAD
 import com.ryan.view_siso.activity.FindClassUserActivity;
 import com.ryan.view_siso.activity.Main2Activity;
 import com.ryan.view_siso.activity.TeaInfoActivity;
@@ -42,26 +36,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+>>>>>>> parent of aed4d52... 增加TEA_fragment的内容
 
 /**
  * Created by air on 15/11/26.
  */
+<<<<<<< HEAD
 public class TEA_fragment extends Fragment implements SearchView.OnQueryTextListener{
 
     private RecyclerView recyclerView;
     private ArrayList<TeaInfoBean> teas;
     private TeaItemAdapter teaItemAdapter;
 
+=======
+public class TEA_fragment extends Fragment {
+>>>>>>> parent of aed4d52... 增加TEA_fragment的内容
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_tea_fg, container, false);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.tea_recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(true);
         return view;
     }
+<<<<<<< HEAD
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -174,4 +171,6 @@ public class TEA_fragment extends Fragment implements SearchView.OnQueryTextList
         };
         requestQueue.add(jsonRequest);
     }
+=======
+>>>>>>> parent of aed4d52... 增加TEA_fragment的内容
 }

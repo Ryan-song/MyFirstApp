@@ -47,29 +47,6 @@ import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 12/11 代码改动较大。
- *
- * MainActivity为原第一界面，不变，200～无参跳转
- * FindActivity为原第二界面，［修改为主FindActivity2，包含此Activity的内容］
- *      ｛ 新命名：FindActivity2，包含3个Fragment，［STU_Fragment_0,TEA_Fragment_1,SETing_Fragment_2],
- *              FindActivity——>STU_Fragment
- *              TEA_Fragment_1-->TEA_fragment｝
- * STU_Fragment{
- * FindStuidActivity为原第三界面，第一查询。不变
- *
- *  Main2Activity为原第三界面，第二查询。［原替代FindClassActivity］
- *      ｛ 新命名：更改为原来的原替代FindClassActivity｝
- *
- * FindNameActivity为原第三界面，第三查询，不变
- *}
- * TEA_Fragment{
- *     老师接口
- * }
- * SETing_Fragment_2{
- *     设置界面
- * }
- */
 
 public class MainActivity extends AppCompatActivity {
     // TODO: 15/12/8 https://github.com/lzyzsd/AndroidRandomColor
@@ -217,9 +194,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.remove("password");
                                 editor.commit();
                             }
-//                            startActivity(new Intent(MainActivity.this, FindActivity.class));
-
-                            startActivity(new Intent(MainActivity.this, FindActivity2.class));
+                           startActivity(new Intent(MainActivity.this, FindActivity.class));
 
                         }
                     }
